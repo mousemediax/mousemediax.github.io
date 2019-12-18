@@ -4,6 +4,51 @@
   
     
     <entry>
+      <title>同时维护多个github账号的hexo博客</title>
+      <link href="/2019/12/18/shi-wei-hu-duo-ge-github-zhang-hao-de-hexo-bo-ke/"/>
+      <url>/2019/12/18/shi-wei-hu-duo-ge-github-zhang-hao-de-hexo-bo-ke/</url>
+      
+        <content type="html"><![CDATA[<h1 id="同时维护多个github账号的hexo博客"><a href="#同时维护多个github账号的hexo博客" class="headerlink" title="同时维护多个github账号的hexo博客"></a>同时维护多个github账号的hexo博客</h1><p>一个github只能创建一个基于github的hexo博客，如果有多个github账户，想同时更新维护多个基于github的hexo 博客站点应该如何配置呢。</p><h2 id="创建多个-ssh-key"><a href="#创建多个-ssh-key" class="headerlink" title="创建多个 ssh key"></a>创建多个 ssh key</h2><p>第一个创建：</p><p><code>ssh-keygen -t rsa -C &quot;xxxxx@xxxxx.com&quot;</code></p><p>第二个创建记得重新命名：</p><h2 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置 ssh config文件##"></a>配置 ssh config文件##</h2><p>在.ssh目录中新建config文件</p><pre><code>Host user1HostName github.comUser gitIdentityFile C:/Users/real/.ssh/id_rsa_user1Host user2HostName github.comUser gitIdentityFile C:/Users/real/.ssh/id_rsa_user2</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>multi github acount multi website</title>
+      <link href="/2019/12/18/multi-github-acount-multi-website/"/>
+      <url>/2019/12/18/multi-github-acount-multi-website/</url>
+      
+        <content type="html"><![CDATA[<h1 id="同时维护多个github账号的hexo博客"><a href="#同时维护多个github账号的hexo博客" class="headerlink" title="同时维护多个github账号的hexo博客"></a>同时维护多个github账号的hexo博客</h1><p>一个github只能创建一个基于github的hexo博客，如果有多个github账户，想同时更新维护多个基于github的hexo 博客站点应该如何配置呢。</p><h2 id="创建多个-ssh-key"><a href="#创建多个-ssh-key" class="headerlink" title="创建多个 ssh key"></a>创建多个 ssh key</h2><p>第一个创建：</p><p><code>ssh-keygen -t rsa -C &quot;xxxxx@xxxxx.com&quot;</code></p><p>第二个创建记得重新命名：</p><img src="/.cn//12/18/multi-github-acount-multi-website/pasted-0.png" class title="This is an example image"><h2 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置 ssh config文件##"></a>配置 ssh config文件##</h2><p>在.ssh目录中新建config文件</p><pre><code>Host user1HostName github.comUser gitIdentityFile C:/Users/real/.ssh/id_rsa_user1Host user2HostName github.comUser gitIdentityFile C:/Users/real/.ssh/id_rsa_user2</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>多个github 账号更新多个hexo博客</title>
+      <link href="/2019/12/18/duo-ge-github-zhang-hao-geng-xin-duo-ge-hexo-bo-ke/"/>
+      <url>/2019/12/18/duo-ge-github-zhang-hao-geng-xin-duo-ge-hexo-bo-ke/</url>
+      
+        <content type="html"><![CDATA[<h1 id="同时维护多个github账号的hexo博客"><a href="#同时维护多个github账号的hexo博客" class="headerlink" title="同时维护多个github账号的hexo博客"></a>同时维护多个github账号的hexo博客</h1><p>一个github只能创建一个基于github的hexo博客，如果有多个github账户，想同时更新维护多个基于github的hexo 博客站点应该如何配置呢。</p><h2 id="创建多个-ssh-key"><a href="#创建多个-ssh-key" class="headerlink" title="创建多个 ssh key"></a>创建多个 ssh key</h2><p>第一个创建：</p><p><code>ssh-keygen -t rsa -C &quot;xxxxx@xxxxx.com&quot;</code></p><p>第二个创建记得重新命名：</p><h2 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置 ssh config文件##"></a>配置 ssh config文件##</h2><p>在.ssh目录中新建config文件</p><pre><code>Host user1HostName github.comUser gitIdentityFile C:/Users/real/.ssh/id_rsa_user1Host user2HostName github.comUser gitIdentityFile C:/Users/real/.ssh/id_rsa_user2</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo, github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2019/12/18/hello-world/"/>
       <url>/2019/12/18/hello-world/</url>
