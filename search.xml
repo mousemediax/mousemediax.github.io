@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>视频基础系列课程04 像素宽高比</title>
+      <link href="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-04-xiang-su-kuan-gao-bi/"/>
+      <url>/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-04-xiang-su-kuan-gao-bi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="04-Pixel-Aspect-Ratios-（像素宽高比）"><a href="#04-Pixel-Aspect-Ratios-（像素宽高比）" class="headerlink" title="04 Pixel Aspect Ratios （像素宽高比）"></a>04 Pixel Aspect Ratios （像素宽高比）</h1><p>像素比是指图像中的一个像素的宽度与高度之比，而帧纵横比则是指图像的一帧的宽度与高度之比。</p><p>图像中的一个像素的宽度与高度之比，而帧纵横比则是指图像的一帧的宽度与高度之比。如某些D1/DV NTSC图像的帧纵横比是4：3，但使用方形像素（1.0像素比）的是640×480，使用矩形像素（0.9像素比）的是720×480。DV基本上使用矩形像素，在NTSC视频中是纵向排列的，而在PAL制视频中是横向排列的。使用计算机图形软件制作生成的图像大多使用方形像素。</p><p>由于计算机产生的图像的像素比永远是1:1，而由于电视设备所产生的视频图像，就不一定是1:1，如我国的PAL制像素比就是16:15=1.07。同时，PAL制规定画面宽高比为4:3。根据宽高比的定义来推算， PAL制图像分辨率应为768<em>576，这是在像素为1:1的情况下，可PAL制的分辨率为720</em>576。因此，实际PAL制图像的像素比是768:720=16:15=1.07。也就是通过把正方形像素“拉长”的方法，保证了画面的4:3的宽高比例。</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337835&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 影音技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 视频基础 </tag>
+            
+            <tag> 视频公开课 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>视频基础系列课程03宽高比</title>
       <link href="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/"/>
       <url>/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/</url>
       
-        <content type="html"><![CDATA[<h1 id="03-Aspect-Ratios-（宽高比）"><a href="#03-Aspect-Ratios-（宽高比）" class="headerlink" title="03 Aspect Ratios （宽高比）"></a>03 Aspect Ratios （宽高比）</h1><p>宽高比即是视频显示的宽度与高度的比例。宽高比最初用于电影中，其标准宽高比为4:3，后来这个比例也延续到了电视以及早期的电脑显示器中。之后随着技术的改进，影视以及显示设备发展到了更宽的比例，就出现了16:9、16:10等宽屏比例。</p><img src="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/1.jpg" class="" title="宽高比"><h2 id="常见宽高比对应的分辨率有哪些？"><a href="#常见宽高比对应的分辨率有哪些？" class="headerlink" title="常见宽高比对应的分辨率有哪些？"></a>常见宽高比对应的分辨率有哪些？</h2><p>4:3宽高比的分辨率 — 640<em>480、800</em>600、960<em>720、1024</em>768、1280<em>960、1440</em>1080、1600<em>1200、1920</em>1440、2048*1536等。</p><h2 id="为什么视频会有黑边？"><a href="#为什么视频会有黑边？" class="headerlink" title="为什么视频会有黑边？"></a>为什么视频会有黑边？</h2><p>很多时候，我们在播放某个视频时，会发现视频的上下或左右有黑边，影响观看。这些黑边是怎么来的呢？其实，是因为我们在16:9的播放窗口中观看的是4:3的视频，由于视频的宽高比与播放器的宽高比不同，才会导致视频有黑边出现。</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337827&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div><p>更多视频技术基础课程，请关注MouseMedia.</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="03-Aspect-Ratios-（宽高比）"><a href="#03-Aspect-Ratios-（宽高比）" class="headerlink" title="03 Aspect Ratios （宽高比）"></a>03 Aspect Ratios （宽高比）</h1><p>宽高比即是视频显示的宽度与高度的比例。宽高比最初用于电影中，其标准宽高比为4:3，后来这个比例也延续到了电视以及早期的电脑显示器中。之后随着技术的改进，影视以及显示设备发展到了更宽的比例，就出现了16:9、16:10等宽屏比例。</p><img src="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/1.jpg" class="" title="宽高比"><h2 id="常见宽高比对应的分辨率有哪些？"><a href="#常见宽高比对应的分辨率有哪些？" class="headerlink" title="常见宽高比对应的分辨率有哪些？"></a>常见宽高比对应的分辨率有哪些？</h2><p>4:3宽高比的分辨率 — 640<em>480、800</em>600、960<em>720、1024</em>768、1280<em>960、1440</em>1080、1600<em>1200、1920</em>1440、2048*1536等。</p><h2 id="为什么视频会有黑边？"><a href="#为什么视频会有黑边？" class="headerlink" title="为什么视频会有黑边？"></a>为什么视频会有黑边？</h2><p>很多时候，我们在播放某个视频时，会发现视频的上下或左右有黑边，影响观看。这些黑边是怎么来的呢？其实，是因为我们在16:9的播放窗口中观看的是4:3的视频，由于视频的宽高比与播放器的宽高比不同，才会导致视频有黑边出现。</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337827&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div>]]></content>
       
       
       <categories>
