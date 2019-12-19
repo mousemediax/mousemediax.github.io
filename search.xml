@@ -4,11 +4,65 @@
   
     
     <entry>
-      <title>视频编解码技术基础系列视频课程</title>
-      <link href="/2019/12/19/shi-pin-bian-jie-ma-ji-zhu-ji-chu-xi-lie-shi-pin-ke-cheng/"/>
-      <url>/2019/12/19/shi-pin-bian-jie-ma-ji-zhu-ji-chu-xi-lie-shi-pin-ke-cheng/</url>
+      <title>视频基础系列课程03宽高比</title>
+      <link href="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/"/>
+      <url>/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/</url>
       
-        <content type="html"><![CDATA[<p>本文所有视频转载自B站的视频编解码技术基础系列视频课程。</p><h1 id="01-Introduction-简介"><a href="#01-Introduction-简介" class="headerlink" title="01_Introduction (简介)"></a>01_Introduction (简介)</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337819&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div><h1 id="02-Resolution-amp-Size-（视频分辨率）"><a href="#02-Resolution-amp-Size-（视频分辨率）" class="headerlink" title="02 Resolution &amp; Size （视频分辨率）"></a>02 Resolution &amp; Size （视频分辨率）</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337820&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div><h1 id="03-Aspect-Ratios-（宽高比）"><a href="#03-Aspect-Ratios-（宽高比）" class="headerlink" title="03 Aspect Ratios （宽高比）"></a>03 Aspect Ratios （宽高比）</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337827&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div>]]></content>
+        <content type="html"><![CDATA[<h1 id="03-Aspect-Ratios-（宽高比）"><a href="#03-Aspect-Ratios-（宽高比）" class="headerlink" title="03 Aspect Ratios （宽高比）"></a>03 Aspect Ratios （宽高比）</h1><p>宽高比即是视频显示的宽度与高度的比例。宽高比最初用于电影中，其标准宽高比为4:3，后来这个比例也延续到了电视以及早期的电脑显示器中。之后随着技术的改进，影视以及显示设备发展到了更宽的比例，就出现了16:9、16:10等宽屏比例。</p><img src="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-03-kuan-gao-bi/1.jpg" class="" title="宽高比"><h2 id="常见宽高比对应的分辨率有哪些？"><a href="#常见宽高比对应的分辨率有哪些？" class="headerlink" title="常见宽高比对应的分辨率有哪些？"></a>常见宽高比对应的分辨率有哪些？</h2><p>4:3宽高比的分辨率 — 640<em>480、800</em>600、960<em>720、1024</em>768、1280<em>960、1440</em>1080、1600<em>1200、1920</em>1440、2048*1536等。</p><h2 id="为什么视频会有黑边？"><a href="#为什么视频会有黑边？" class="headerlink" title="为什么视频会有黑边？"></a>为什么视频会有黑边？</h2><p>很多时候，我们在播放某个视频时，会发现视频的上下或左右有黑边，影响观看。这些黑边是怎么来的呢？其实，是因为我们在16:9的播放窗口中观看的是4:3的视频，由于视频的宽高比与播放器的宽高比不同，才会导致视频有黑边出现。</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337827&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div><p>更多视频技术基础课程，请关注MouseMedia.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 影音技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 视频基础 </tag>
+            
+            <tag> 视频公开课 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>视频基础系列课程02分辨率与大小</title>
+      <link href="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-02-fen-bian-lu-yu-da-xiao/"/>
+      <url>/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-02-fen-bian-lu-yu-da-xiao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="02-Resolution-amp-Size-（视频分辨率）"><a href="#02-Resolution-amp-Size-（视频分辨率）" class="headerlink" title="02 Resolution &amp; Size （视频分辨率）"></a>02 Resolution &amp; Size （视频分辨率）</h1><p>视频分辨率是用于度量图像内数据量多少的一个参数，通常表示成ppi（每英寸像素Pixel per inch）一个视频的320X180是指它在横向和纵向上的有效像素，窗口小时ppi值较高，看起来清晰；窗口放大时，由于没有那么多有效像素填充窗口，有效像素ppi值下降，就模糊了。（放大时有效像素间的距离拉大，而显卡会把这些空隙填满，也就是插值，插值所用的像素是根据上下左右的有效像素“猜”出来的“假像素”，没有原视频信息）习惯上我们说的分辨率是指图像的高/宽像素值，严格意义上的分辨率是指单位长度内的有效像素值ppi。差别就在这里。图像的高/宽像素值的确和尺寸无关，但单位长度内的有效像素值ppi和尺寸就有关了，显然尺寸越大ppi越小。</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337820&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div><p>更多视频技术基础课程，请关注MouseMedia.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 影音技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 视频基础 </tag>
+            
+            <tag> 视频公开课 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>视频技术基础系列课程 01简介</title>
+      <link href="/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-01-jian-jie/"/>
+      <url>/2019/12/19/shi-pin-ji-chu-xi-lie-ke-cheng-01-jian-jie/</url>
+      
+        <content type="html"><![CDATA[<p>本文所有视频转载自B站的视频编解码技术基础系列视频课程。</p><h1 id="01-Introduction-简介"><a href="#01-Introduction-简介" class="headerlink" title="01_Introduction (简介)"></a>01_Introduction (简介)</h1><p>本系列是视频基础系列课程，针对特效视频渲染的入门级用户。<br>主要涉及视频的一些基础概念，如分辨率，大小，宽高比等。</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=25917381&cid=44337819&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width:100%; height:100%;left:0;top:0;"> </iframe></div><p>后续影音视频基础课程系列，请关注。</p>]]></content>
       
       
       <categories>
