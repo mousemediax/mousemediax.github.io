@@ -475,7 +475,7 @@
 <h2 id="1-渲染引擎及网页渲染"><a href="#1-渲染引擎及网页渲染" class="headerlink" title="1.渲染引擎及网页渲染"></a>1.渲染引擎及网页渲染</h2><p>浏览器自从上世纪80年代后期90年代初期诞生以来，已经得到了长足的发展，其功能也越来越丰富，包括网络、资源管理、网页浏览、多页面管理、插件和扩展、书签管理、历史记录管理、设置管理、下载管理、账户和同步、安全机制、隐私管理、外观主题、开发者工具等。在这些功能中，为用户提供网页浏览服务无疑是最重要的功能，下面将对相关内容进行介绍。</p>
 <h3 id="1-1-渲染引擎"><a href="#1-1-渲染引擎" class="headerlink" title="1.1.渲染引擎"></a>1.1.渲染引擎</h3><p>渲染引擎：能够将HTML/CSS/JavaScript文本及相应的资源文件转换成图像结果。渲染引擎的主要作用是将资源文件转化为用户可见的结果。在浏览器的发展过程中，不同的厂商开发了不同的渲染引擎，如Tridend(IE)、Gecko(FF)、WebKit(Safari,Chrome,Andriod浏览器)等。WebKit是由苹果2005年发起的一个开源项目，引起了众多公司的重视，几年间被很多公司所采用，在移动端更占据了垄断地位。更有甚者，开发出了基于WebKit的支持HTML5的web操作系统(如：Chrome OS、Web OS)。</p>
 <p>下面是WebKit的大致结构：</p>
-<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/12/19/guan-yu-chrome-v8-yin-qing/1.png" class title="webkit架构">
+<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/1.png" class="" title="webkit架构">
 
 <p>上图中实线框内模块是所有移植的共有部分，虚线框内不同的厂商可以自己实现。下面进行介绍：</p>
 <ul>
@@ -487,11 +487,11 @@
 <ul>
 <li>WebKit Ports是WebKit中的非共享部分，由于平台差异、第三方库和需求的不同等原因，不同的移植导致了WebKit不同版本行为不一致，它是不同浏览器性能和功能差异的关键部分。<br>WebKit嵌入式编程接口，供浏览器调用，与移植密切相关，不同的移植有不同的接口规范。</li>
 </ul>
-<ol>
+<ul>
 <li>测试用例，包括布局测试用例和性能测试用例，用来验证渲染结果的正确性。</li>
-</ol>
+</ul>
 <h3 id="1-2-网页渲染流程"><a href="#1-2-网页渲染流程" class="headerlink" title="1.2.网页渲染流程"></a>1.2.网页渲染流程</h3><p>上面介绍了渲染引擎的各个模块，那么一张网页，要经历怎样的过程，才能抵达用户面前？</p>
-<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/12/19/guan-yu-chrome-v8-yin-qing/2.png" class title="渲染流程">
+<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/2.png" class="" title="渲染流程">
 
 <p>首先是网页内容，输入到HTML解析器，HTML解析器解析，然后构建DOM树，在这期间如果遇到JavaScript代码则交给JavaScript引擎处理；如果来自CSS解析器的样式信息，构建一个内部绘图模型。该模型由布局模块计算模型内部各个元素的位置和大小信息，最后由绘图模块完成从该模型到图像的绘制。在网页渲染的过程中，大致可分为下面3个阶段。</p>
 <h4 id="1-2-1-从输入URL到生成DOM树"><a href="#1-2-1-从输入URL到生成DOM树" class="headerlink" title="1.2.1.从输入URL到生成DOM树"></a>1.2.1.从输入URL到生成DOM树</h4><ul>
@@ -516,15 +516,16 @@
 </li>
 </ul>
 <p>####1.2.3.绘图上下文到最终图像呈现<br>绘图上下文是一个与平台无关的抽象类，它将每个绘图操作桥接到不同的具体实现类，也就是绘图具体实现类；<br>绘图实现类也可能有简单的实现，也可能有复杂的实现，软件渲染、硬件渲染、合成渲染等；<br>绘图实现类将2D图形库或者3D图形库绘制结果保存，交给浏览器界面进行展示。<br>　　上述是一个完整的渲染过程，现代网页很多都是动态的，随着网页与用户的交互，浏览器需要不断的重复渲染过程。<br>###1.3.JavaScript引擎</p>
-<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/12/19/guan-yu-chrome-v8-yin-qing/3.png" class>
+<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/3.png" class="">
 
 <p>JavaScript本质上是一种解释型语言，与编译型语言不同的是它需要一遍执行一边解析，而编译型语言在执行时已经完成编译，可直接执行，有更快的执行速度(如上图所示)。JavaScript代码是在浏览器端解析和执行的，如果需要时间太长，会影响用户体验。那么提高JavaScript的解析速度就是当务之急。JavaScript引擎和渲染引擎的关系如下图所示：</p>
-<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/12/19/guan-yu-chrome-v8-yin-qing/4.png" class>
+<img src="/2019/12/19/guan-yu-chrome-v8-yin-qing/4.png" class="">
 
 <p>JavaScript语言是解释型语言，为了提高性能，引入了Java虚拟机和C++编译器中的众多技术。现在JavaScript引擎的执行过程大致是：</p>
 <p>　　源代码-→抽象语法树-→字节码-→JIT-→本地代码(V8引擎没有中间字节码)。一段代码的抽象语法树示例如下：</p>
 <pre class=" language-function"><code class="language-function">    console.log(name);
 }</code></pre>
+<p>end test</p>
 
             </div>
             <hr/>
