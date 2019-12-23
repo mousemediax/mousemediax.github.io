@@ -547,15 +547,15 @@
 <p>  ffmpeg.exe -i BQSquare_416x240_37.avi -f rawvideo -vcodec copy -vframes 100 xx.264</p>
 <p>  对于提取特定的帧，需要用特殊的方法：假设提取260帧，帧率是26， 则可用-ss 10.0 其中10.0=260/26</p>
 </li>
-<li><p>YUV裁剪功能<br>  Extract some YUV frames from large yuv File<br>  从第0帧开始截取30帧：<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v select=”gt(n, -1)” -vframes 30 out30.yuv</p>
+<li><p>YUV裁剪功能<br>  Extract some YUV frames from large yuv File<br>  从第0帧开始截取30帧：<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’gt(n, -1)’” -vframes 30 out30.yuv</p>
 <p>  或者：</p>
-<p>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v select=”between(n, 0, 29)” out30.yuv</p>
+<p>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(n, 0, 29)’” out30.yuv</p>
 <p>  或者：</p>
 <p>  ffmpeg -r 1 -ss 0 -i input.yuv -vcodec copy -vframes 30 output.yuv</p>
 <p>  中间截取帧（截取从第30帧到第100帧）：</p>
-<p>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v select=”between(n, 30, 100)” out.yuv</p>
+<p>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(n, 30, 100)’” out.yuv</p>
 <p>  根据时间截取帧（截取从第10秒到第20秒 ）：</p>
-<p>  //Select only frames contained in the 10-20 time interval:<br>  //select=between(t,10,20)<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v select=”between(t, 10, 20)” out.yuv</p>
+<p>  //Select only frames contained in the 10-20 time interval:<br>  //select=between(t,10,20)<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(t, 10, 20)’” out.yuv</p>
 <p>  参考自： <a href="https://blog.csdn.net/listener51/article/details/82025541" target="_blank" rel="noopener" title="https://blog.csdn.net/listener51/article/details/82025541">https://blog.csdn.net/listener51/article/details/82025541</a></p>
 </li>
 </ul>
