@@ -558,7 +558,26 @@
 <p>  //Select only frames contained in the 10-20 time interval:<br>  //select=between(t,10,20)<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(t, 10, 20)’” out.yuv</p>
 <p>  参考自： <a href="https://blog.csdn.net/listener51/article/details/82025541" target="_blank" rel="noopener" title="https://blog.csdn.net/listener51/article/details/82025541">https://blog.csdn.net/listener51/article/details/82025541</a></p>
 </li>
+<li><p>提取YUV数据</p>
+<p>  ffmpeg.exe -ss 00:02:45 -t 00:00:18  -i 8k.mp4 -an -c:v rawvideo -pix_fmt yuv420p 8k.yuv</p>
+<p>  ffmpeg -i killer.mp4 -an -c:v rawvideo -pix_fmt yuv420p ouy.yuv</p>
+<p>  参数说明<br>  -c:v rawvideo 指定将视频转成原始数据<br>  -pixel_format yuv420p 指定转换格式为yuv420p</p>
+</li>
 </ul>
+<img src="/2019/12/23/ffmpeg-chang-yong-ming-ling-hui-zong/1.jpeg" class="">
+
+<p>从日志中可以看出，像素格式:yuv420p,分辨率:608x368，使用ffplay播放一下。需要指定分辨率，这个时候不需要指定视频格式了，ffplay默认像素格式格式就是yuv420p。</p>
+<pre><code>ffplay -s 608x368 ouy.yuv</code></pre><ul>
+<li><p>提取PCM数据</p>
+<p>  ffmpeg -i killer.mp4 -vn -ar 44100 -ac 2 -f s16le out.pcm<br>  参数说明</p>
+<p>  -ar:指定音频采样率 44100 即44.1KHz<br>  -ac:指定音频声道channel 2 为双声道<br>  -f：数据存储格式 s：Signed 有符号的， 16： 每一个数值用16位表示， l： little， e： end</p>
+</li>
+</ul>
+<pre><code>使用ffplay播放
+
+ffplay -ar 44100 -ac 2 -f s16le out.pcm</code></pre><blockquote>
+<p>作者：欧阳慕远<br>链接：<a href="https://www.jianshu.com/p/210ab1749bc1" target="_blank" rel="noopener">https://www.jianshu.com/p/210ab1749bc1</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
 <h1 id="FFMPEG常用参数说明"><a href="#FFMPEG常用参数说明" class="headerlink" title="FFMPEG常用参数说明"></a>FFMPEG常用参数说明</h1><pre><code>主要参数：
 -i 设定输入流
 -f 设定输出格式
