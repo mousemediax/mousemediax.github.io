@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Markdown语法详解</title>
+      <link href="/2019/12/24/markdown-yu-fa-xiang-jie/"/>
+      <url>/2019/12/24/markdown-yu-fa-xiang-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h1><ul><li>加粗 Ctrl + B</li><li>斜体 Ctrl + I</li><li>引用 Ctrl + Q</li><li>插入链接 Ctrl + L</li><li>插入代码 Ctrl + K</li><li>插入图片 Ctrl + G</li><li>提升标题 Ctrl + H</li><li>有序列表 Ctrl + O</li><li>无序列表 Ctrl + U</li><li>横线 Ctrl + R</li><li>撤销 Ctrl + Z</li><li>重做 Ctrl + Y</li></ul><h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>对字体设置斜体、粗体、删除线，语法如下：</p><img src="/2019/12/24/markdown-yu-fa-xiang-jie/1.jpg" class=""><h2 id="标题分级："><a href="#标题分级：" class="headerlink" title="标题分级："></a>标题分级：</h2><p><img src="2.jpeg" alt="标题分级"></p><h2 id="网址链接："><a href="#网址链接：" class="headerlink" title="网址链接："></a>网址链接：</h2><p><img src="3.jpeg" alt="网址链接"></p><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以在一行中用三个以上的星号(*)、减号(-)、底线(_)来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p><p><img src="4.jpeg" alt="分割线"></p><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(tab), 另一种是利用英文“`”符号（一般在ESC键下方，和~同一个键）包裹代码。</p><p>（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下：</p><p><img src="5.jpeg" alt="代码块"></p><p>（2）行内式：如果在一个行内需要引用代码，只要用反引号`引起来就好(Esc健）</p><p><img src="6.jpeg" alt="行内式"></p><p>（3）多行代码块与语法高亮：在需要高亮的代码块的前一行及后一行使用三个单反引号“`”包裹，就可以了。</p><p>示例如下：<br><img src="7.jpeg" alt="多行代码"></p><p>（4）代码块里面包含html代码</p><p>在代码区块里面， &amp; 、 &lt; 和 &gt; 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，剩下的 Markdown 都会帮你处理。</p><p><img src="8.jpeg" alt="html语法表格"></p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在被引用的文本前加上&gt;符号，以及一个空格就可以了，如果只输入了一个&gt;符号会产生一个空白的引用。</p><p>（1）基本使用</p><p><img src="9.jpeg" alt="引用"></p><p>（2）引用的嵌套使用</p><p><img src="10.jpeg" alt="引用"></p><p>（3）引用其它要素</p><p><img src="11.jpeg" alt="引用"></p><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>（1）无序列表</p><p>使用 *，+，- 表示无序列表。 注意：符号后面一定要有一个空格，起到缩进的作用。</p><p><img src="12.jpeg" alt="无序列表"></p><p>（2）有序列表</p><p>使用数字和一个英文句点表示有序列表。<br>注意：英文句点后面一定要有一个空格，起到缩进的作用。<br><img src="13.jpeg" alt="有序列表"></p><p>（3）无序列表和有序列表同时使用<br><img src="14.jpeg" alt=""></p><p>（4）列表和其它要素混合使用</p><p>列表不光可以单独使用，也可以使用其他的 Markdown 语法，包括标题、引用、代码区块等。</p><p><img src="15.jpeg" alt=""></p><blockquote><p>注意事项：<br>    - 加粗效果不能直接用于列表标题里面，但是可以嵌套在列表里面混合使用。<br>    - 列表中包含代码块（前面加2个tab或者8个空格，并且需要空一行，否则不显示）。</p></blockquote><p><img src="16.jpeg" alt=""></p><blockquote><p>注意事项：<br>在使用列表时，只要是数字后面加上英文的点，就会无意间产生列表，比如2017.12.30 这时候想表达的是日期，有些软件把它被误认为是列表。解决方式：在每个点前面加上\就可以了。如下图所示：</p></blockquote><p><img src="17.jpeg" alt=""></p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格的基本写法很简单，就跟表格的形状很相似：</p><p><img src="18.jpeg" alt=""></p><p>表格对齐方式：我们可以指定表格单元格的对齐方式，冒号在左边表示左对齐，右边表示有对齐，两边都有表示居中。<br><img src="19.jpeg" alt="表格对齐方式"></p><h1 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h1><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>方法1: 连续两个以上空格+回车<br>方法2：使用html语言换行标签：&lt;br&gt;</p><h2 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h2><p>不断行的空白格 &amp;\nbsp; 或 &amp;#160;半角的空格 &amp;ensp; 或 &amp;#8194;全角的空格 &amp;emsp; 或 &amp;#8195;<br><img src="20.jpeg" alt="markdown缩进"></p><h2 id="如何显示特殊符号"><a href="#如何显示特殊符号" class="headerlink" title="如何显示特殊符号"></a>如何显示特殊符号</h2><p>对于 Markdown 中的语法符号，前面加反斜线\即可显示符号本身。<br><img src="21.jpeg" alt="markdown特殊符号"></p><p>其他特殊字符：<br><img src="22.jpeg" alt="markdown特殊符号"></p><h2 id="字体、字号与颜色"><a href="#字体、字号与颜色" class="headerlink" title="字体、字号与颜色"></a>字体、字号与颜色</h2><p><img src="23.jpeg" alt="markdown字体字号颜色"><br>具体颜色分类及标记请看下表：<br><img src="24.jpeg" alt="markdown字体字号颜色"></p><h2 id="图片位置"><a href="#图片位置" class="headerlink" title="图片位置"></a>图片位置</h2><p><code>&lt;div align=right&gt;![这里写图片描述](http:...)</code><br><code>&lt;div align=center&gt;![这里写图片描述](http:...)</code></p><h1 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h1><h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><p>锚点其实就是页内超链接。比如我这里写下一个锚点，点击回到目录，就能跳转到目录。 在目录中点击这一节，就能跳过来。</p><p><img src="25.jpeg" alt="锚点"></p><h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><p>语法说明：<br>在需要添加注脚的文字后加上脚注名字[^注脚名字],称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。<br><img src="26.jpeg" alt="注脚"></p><blockquote><p>注：<br>（1）脚注自动被搬运到最后面，请到文章末尾查看，并且脚注后方的链接可以直接跳转回到加注的地方。<br>（2）由于简书不支持锚点，所以可以用注脚实现页面内部的跳转。</p></blockquote><h2 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h2><p>Markdown本身不支持背景色设置，需要采用内置html的方式实现：借助 table, tr, td 等表格标签的 bgcolor 属性来实现背景色的功能。举例如下：<br><img src="27.png" alt="背景色"></p><h2 id="emoji表情符号"><a href="#emoji表情符号" class="headerlink" title="emoji表情符号"></a>emoji表情符号</h2><p>emoji表情使用:EMOJICODE:的格式，详细列表可见:<br><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">https://www.webfx.com/tools/emoji-cheat-sheet/</a><br>很多markdown工具或者网站都不支持.<br><img src="27.jpeg" alt="emoji表情符号"></p><h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p><img src="28.png" alt="公式"></p><h2 id="LaTex是什么？"><a href="#LaTex是什么？" class="headerlink" title="LaTex是什么？"></a>LaTex是什么？</h2><p>LaTeX（LATEX，音译“拉泰赫”）是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TeX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。</p><h2 id="简单的规则"><a href="#简单的规则" class="headerlink" title="简单的规则"></a>简单的规则</h2><p><img src="29.png" alt="公式"></p><h2 id="常用数学符号的-LaTeX-表示方法"><a href="#常用数学符号的-LaTeX-表示方法" class="headerlink" title="常用数学符号的 LaTeX 表示方法"></a>常用数学符号的 LaTeX 表示方法</h2><p><img src="30.png" alt="公式"><br><img src="31.png" alt="公式"><br><img src="32.png" alt="公式"></p><hr><h1 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h1><p><img src="28.jpeg" alt="流程图"><br>制作一份待办事宜—-Todo 列表<br><img src="29.jpeg" alt="流程图"><br>序列图：<br><img src="30.jpeg" alt="序列图"><br>甘特图：<br><img src="31.jpeg" alt="甘特图"></p><p>本文参考文章：<br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&amp;mid=2247489234&amp;idx=1&amp;sn=c6de4582a1400af22e0908f05a8870bc" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&amp;mid=2247489234&amp;idx=1&amp;sn=c6de4582a1400af22e0908f05a8870bc</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 建站技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo gitpage 博客本地文件备份恢复</title>
+      <link href="/2019/12/24/hexo-gitpage-bo-ke-ben-di-wen-jian-bei-fen-hui-fu/"/>
+      <url>/2019/12/24/hexo-gitpage-bo-ke-ben-di-wen-jian-bei-fen-hui-fu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hexo-源文件备份说明"><a href="#Hexo-源文件备份说明" class="headerlink" title="Hexo 源文件备份说明"></a>Hexo 源文件备份说明</h1><ul><li>_config.yml站点的配置文件，<strong>需要拷贝</strong></li><li>themes/主题文件夹，<strong>需要拷贝</strong>；</li><li>source博客文章的.md文件，<strong>需要拷贝</strong>；</li><li>scaffolds/文章的模板，<strong>需要拷贝</strong>；</li><li>package.json安装包的名称，<strong>需要拷贝</strong>；</li><li>.gitignore限定在push时哪些文件可以忽略，<strong>需要拷贝</strong>；</li><li>.git/主题和站点都有，标志这是一个git项目，不需要拷贝；</li><li>node_modules/是安装包的目录，在执行npm install的时候会重新生成，不需要拷贝；</li><li>public是hexo g生成的静态网页，不需要拷贝；</li><li>.deploy_git同上，hexo g也会生成，不需要拷贝；</li><li>db.json文件，不需要拷贝。</li></ul><h1 id="github-保存需要备份的hexo文件"><a href="#github-保存需要备份的hexo文件" class="headerlink" title="github 保存需要备份的hexo文件"></a>github 保存需要备份的hexo文件</h1><p>两种方法： </p><ul><li>直接新建一个repro， git上传上面的文件。</li><li>在网站项目xxx.github.io 上新建一个分支（branch 名字可以选择hexo， 原来master分支不变，继续保存静态网页，把需要备份的源文件资源上传到hexo分支。）</li></ul><h1 id="hexo环境恢复（如更换电脑）"><a href="#hexo环境恢复（如更换电脑）" class="headerlink" title="hexo环境恢复（如更换电脑）"></a>hexo环境恢复（如更换电脑）</h1><ul><li>安装git；</li><li>安装Nodejs和npm；</li><li>使用克隆命令将仓库拷贝至本地；</li><li>在文件夹内执行命令<pre><code>  npm install hexo-cli -g  npm install  npm install hexo-deployer-git</code></pre></li></ul><p>备份文件修改后，备份改动上传：执行git add，git commit -m “提交文件”，git push origin Hexo来提交Hexo网站源文件；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 建站技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FFmpeg 常用命令汇总</title>
       <link href="/2019/12/23/ffmpeg-chang-yong-ming-ling-hui-zong/"/>
       <url>/2019/12/23/ffmpeg-chang-yong-ming-ling-hui-zong/</url>
