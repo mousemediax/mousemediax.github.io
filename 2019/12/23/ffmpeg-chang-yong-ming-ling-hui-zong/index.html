@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="FFmpeg 常用命令汇总, MouseMedia">
     <meta name="description" content="引言开源音视频处理工具FFMPEG以其强大的功能而在音视频领域著称，从音视频格式转换、裁剪、拼接、提取字幕到提取视频流，编解码等无所不能，本页汇集整理FFmpeg常用命令。
-常用命令示例
-解码H.264/H.265码流（解码）
-  ffmp">
+常用命令示例ffmpeg -h   // 帮助
+ffmpeg -v">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -472,113 +471,132 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>开源音视频处理工具FFMPEG以其强大的功能而在音视频领域著称，从音视频格式转换、裁剪、拼接、提取字幕到提取视频流，编解码等无所不能，本页汇集整理FFmpeg常用命令。</p>
-<h1 id="常用命令示例"><a href="#常用命令示例" class="headerlink" title="常用命令示例"></a>常用命令示例</h1><ul>
-<li><p>解码H.264/H.265码流（解码）</p>
-<p>  ffmpeg -i input_file.264 -vframes 100 output.yuv<br>  ffmpeg -i input_file.265 -vframes 100 output.yuv</p>
-</li>
-<li><p>转换成H264码流（编码）</p>
-<p>  ffmpeg -i input_file.yuv -vcodec h264 output_file.264 </p>
-<p>  其中 -i 表示输入文件， -vcodec h264 表示视频编解码方式为 H264。</p>
-</li>
-<li><p>转换成H265码流（编码）</p>
-<p>  ffmpeg -i input_file -vcode hevc output_file  </p>
-<p>  其中 -i 表示输入文件， -vcodec hevc 表示视频编解码方式为 H265，注意ffmpeg 中名称为 hevc，不是H265！</p>
-</li>
-<li><p>设置输出视频的分辨率</p>
-<p>  ffmpeg -i input_file -vcodec h264 -s 1280x720 output_file<br>  其中 -s 表示分辨率。</p>
-</li>
-<li><p>设置输出文件的音视频比特率</p>
-<p>  ffmpeg -i input_file  -vcodec h264 -b:v 10M -b:a 128K output_file</p>
-<p>  其中 -b:v 10M 表示视频码率为10Mbps， -b:a 128K 表示音频码率为 128Kbps，注意FFMPEG对于码率控制，有时候不太准确，跟输入源有一定关系。</p>
-</li>
-<li><p>剪切某段视频</p>
-<p>  ffmpeg -ss 0:05:00 -t 0:1:30 -i input_file -vcodec copy -acodec copy output_file<br>  ffmpeg -ss 300 -t 90  -i input_file -vcodec copy -acodec copy output_file</p>
-<p>  上面的两种方式等价，时间格式支持 HH:MM:SS或者秒数。 -ss 开始时间， -t 持续时间， -vcodec copy 保持原视频编码方式， -acodec copy 保持原音频编码方式。</p>
-<p>  注意：-vcodec copy与-c:v以及-codec:v 这三种写法的功能是一样的，具体可参考：<a href="https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html" target="_blank" rel="noopener" title="https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html">https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html</a></p>
-</li>
-<li><p>分离音视频流保存为不同文件</p>
-<p>  ffmpeg -i input_file -vcodec copy -an output_file_video　　//提取视频流<br>  ffmpeg -i input_file -acodec copy -vn output_file_audio　　//提取音频流<br>  其中 -an 表示不处理音频， -vn 表示不处理视频。</p>
-</li>
-<li><p>合并多个音视频文件为一个文件</p>
-<p>  ffmpeg –i video_file –i audio_file –vcodec copy –acodec copy output_file </p>
-</li>
-<li><p>提取视频图像保存为图片文件(将视频分解为单幅图片)</p>
-<p>  ffmpeg –i input_file –r 1 –f image2 image-%3d.jpeg        //提取图片</p>
-<p>  其中 -r 表示提取图像的频率，-f 表示输出格式， %3d 表示文件命名方式（也即生成的图片名为 image-001.jpeg, image-002.jpeg, …, image-999.jpeg）。</p>
-</li>
-<li><p>转换成YUV原始文件</p>
-<p>  ffmpeg -i input_file -vcodec rawvideo -an output_file_yuv</p>
-</li>
-<li><p>YUV序列转出AVI文件</p>
-<p>  ffmpeg –s w*h –pix_fmt yuv420p –i input.yuv –vcodec mpeg4 output.avi </p>
-</li>
-<li><p>控制关键帧间隔和B帧</p>
-<p>  ffmpeg –i input_file  –vcodec h264 –bf 0 –g 25 –s 854x480 –an –f m4v output_file</p>
-<p>  其中-bf 控制B帧数目，-g 控制关键帧间隔， -f 控制文件格式（format，注意与codec的区别）。</p>
-</li>
-<li><p>多个视频文件拼接</p>
-<p>  首先创建一个需要拼接的文件，例如 concat.txt，内容如下：</p>
-<p>  file ‘orig_20160616113303_0.avi’<br>  file ‘orig_20160616113303_1.avi’</p>
-<p>  然后执行如下命令</p>
-<p>  ffmpeg  -f concat -i concat.txt  -c copy orig_20160616113303_merge.avi </p>
-</li>
-<li><p>YUV处理相关命令（持续更新ing）<br>  查看ffmpeg支持哪些yuv格式的转换<br>  ffmpeg -pix_fmts  </p>
-</li>
-<li><p>ffmpeg转换yuv格式命令</p>
-<p>  ffmpeg -pix_fmt yuv420p -s 176x144 -i carphone_qcif.yuv -pix_fmt nv12 carphone_qcif_nv12.yuv  </p>
-</li>
-<li><p>ffmpeg命令行yuv缩放命令</p>
-<p>  ffmpeg -s:v 1920x1080 -r 25 -i input.yuv -vf scale=960:540 -c:v rawvideo -pix_fmt yuv420p out.yuv  </p>
-</li>
-<li><p>ffmpeg解码码流命令</p>
-<p>  ffmpeg -i 720P.264 -s 1280x720 -pix_fmt yuv422p 720P-out.yuv<br>  ffmpeg -i 720P.264 -vframes 300  720P-out.yuv    //指定解码的帧数<br>  简化版：ffmpeg -i 720P.264 720P-out.yuv</p>
-<p>  注意不同选项的顺序，-s选项放在-i后面，指定不同分辨率时，在解码后进行了缩放。</p>
-</li>
-<li><p>ffmpeg yuv转avi</p>
-<p>  ffmpeg -s wxh -pix_fmt yuv420p -i input.yuv -vcodec mpeg4 output.avi<br>  ffmpeg -s wxh -pix_fmt yuv420p -i input.yuv -vcodec h264 output.avi  </p>
-</li>
-<li><p>ffmpeg 裸码流转avi</p>
-<p>  ffmpeg -f h264 -i source.264 -c:v libx264 -an dest.avi<br>  Use -c:v copy instead to copy the source stream without re-encoding<br>  参考网址：<a href="https://stackoverflow.com/questions/33108985/ffmpeg-264-to-avi" target="_blank" rel="noopener" title="https://stackoverflow.com/questions/33108985/ffmpeg-264-to-avi">https://stackoverflow.com/questions/33108985/ffmpeg-264-to-avi</a></p>
-</li>
-<li><p>ffmpeg avi转裸码流</p>
-<p>  提取裸码流</p>
-<p>  ffmpeg.exe -i BQSquare_416x240_37.avi -f rawvideo -vcodec copy xx.264</p>
-<p>  提取若干帧数码流</p>
-<p>  ffmpeg.exe -i BQSquare_416x240_37.avi -f rawvideo -vcodec copy -vframes 100 xx.264</p>
-<p>  对于提取特定的帧，需要用特殊的方法：假设提取260帧，帧率是26， 则可用-ss 10.0 其中10.0=260/26</p>
-</li>
-<li><p>YUV裁剪功能<br>  Extract some YUV frames from large yuv File<br>  从第0帧开始截取30帧：<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’gt(n, -1)’” -vframes 30 out30.yuv</p>
-<p>  或者：</p>
-<p>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(n, 0, 29)’” out30.yuv</p>
-<p>  或者：</p>
-<p>  ffmpeg -r 1 -ss 0 -i input.yuv -vcodec copy -vframes 30 output.yuv</p>
-<p>  中间截取帧（截取从第30帧到第100帧）：</p>
-<p>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(n, 30, 100)’” out.yuv</p>
-<p>  根据时间截取帧（截取从第10秒到第20秒 ）：</p>
-<p>  //Select only frames contained in the 10-20 time interval:<br>  //select=between(t,10,20)<br>  ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v “select=’between(t, 10, 20)’” out.yuv</p>
-<p>  参考自： <a href="https://blog.csdn.net/listener51/article/details/82025541" target="_blank" rel="noopener" title="https://blog.csdn.net/listener51/article/details/82025541">https://blog.csdn.net/listener51/article/details/82025541</a></p>
-</li>
-<li><p>提取YUV数据</p>
-<p>  ffmpeg.exe -ss 00:02:45 -t 00:00:18  -i 8k.mp4 -an -c:v rawvideo -pix_fmt yuv420p 8k.yuv</p>
-<p>  ffmpeg -i killer.mp4 -an -c:v rawvideo -pix_fmt yuv420p ouy.yuv</p>
-<p>  参数说明<br>  -c:v rawvideo 指定将视频转成原始数据<br>  -pixel_format yuv420p 指定转换格式为yuv420p</p>
-</li>
-</ul>
-<img src="/2019/12/23/ffmpeg-chang-yong-ming-ling-hui-zong/1.jpeg" class="">
+<h1 id="常用命令示例"><a href="#常用命令示例" class="headerlink" title="常用命令示例"></a>常用命令示例</h1><pre><code>ffmpeg -h   // 帮助
+ffmpeg -version // 版本信息
+ffmepg -devices // 查看可用设备
+ffmpeg -i input.mp4 // 查看视频信息</code></pre><h1 id="ffmpeg-命令行参数解析"><a href="#ffmpeg-命令行参数解析" class="headerlink" title="ffmpeg 命令行参数解析"></a>ffmpeg 命令行参数解析</h1><pre><code>00:00:46.61 视频时长
+3949kb/s 码率
+h264:视频编码格式
+avc1:苹果公司开发的复合h264规范的格式
+yuv420p:视频颜色编码方式
+960x400:分辨率
+SAR 1:1 :图像采集时，采集的宽高点阵的点数比值
+DAR:图像宽高比
+PAR:像素的长宽比
+23.98 fps: 帧率
+23.98 tbr: 帧率
+24k tbn: 文件层的时间精度1S=24k,一秒增加24k
+47.95 tbc:视频层的时间精度1S=47.95,一秒增加47.95
+aac:音频编码格式
+mp4a:
+stereo:立体声
+fltp:音频帧格式
+</code></pre><h1 id="常用命令示例-1"><a href="#常用命令示例-1" class="headerlink" title="常用命令示例"></a>常用命令示例</h1><h2 id="添加字幕"><a href="#添加字幕" class="headerlink" title="添加字幕"></a>添加字幕</h2><pre><code>ffmpeg -i input.mp4 -vf subtitles=text.srt output.mp4</code></pre><h2 id="视频剪切"><a href="#视频剪切" class="headerlink" title="视频剪切"></a>视频剪切</h2><pre><code>ffmpeg -ss 00:00:15 -t 00:00:05 -i input.mp4 -vcodec copy -acodec copy output.mp4
+// -ss表示开始切割的时间，-t表示要切多少。上面就是从15秒开始，切5秒钟出来</code></pre><h2 id="码率控制"><a href="#码率控制" class="headerlink" title="码率控制"></a>码率控制</h2><pre><code>ffmpeg -i input.mp4 -b:v 2000k output.mp4
+ffmpeg -i input.mp4 -b:v 2000k -bufsize 2000 output.mp4 // -bufsize 缓冲区
+ffmpeg -i input.mp4 -b:v 2000k -bufsize 2000k -maxrate 2500k -minrate 1500k output.mp4 // 最大最小域值</code></pre><h2 id="提取视频流"><a href="#提取视频流" class="headerlink" title="提取视频流"></a>提取视频流</h2><pre><code>ffmpeg -i input.mp4 -vcodec copy -an -f m4v output.h264</code></pre><h2 id="保存视频宽高"><a href="#保存视频宽高" class="headerlink" title="保存视频宽高"></a>保存视频宽高</h2><pre><code>ffmpeg -i input.mp4 -vf scale=960:540 output.mp4
+ffmpeg -i input.mp4 -vf scale=960:-1 output.mp4 // 保持宽高比,注意宽要能被2出尽，不然报错</code></pre><h2 id="添加水印"><a href="#添加水印" class="headerlink" title="添加水印"></a>添加水印</h2><pre><code>ffmpeg -i input.mp4 -i logo.png -filter_complex overlay output.mp4
+ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=W-w output.mp4 // 右上角
+ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=0:H-h output.mp4 // 左下角
+ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=W-w:H-h output.mp4 // 右下角</code></pre><h2 id="去除水印"><a href="#去除水印" class="headerlink" title="去除水印"></a>去除水印</h2><pre><code>ffmpeg -i input.mp4 -vf delogo=1:1:144:144:1 output.mp4 // -vf delogo=x:y:w:h[:show], x:y离左上角坐标,设0报错，w:h logo宽高，show设置一个绿色的矩形，默认0</code></pre><h2 id="截取视频图像"><a href="#截取视频图像" class="headerlink" title="截取视频图像"></a>截取视频图像</h2><pre><code>ffmpeg -i input.mp4 -r 1 -q:v 2 -f image2 pic-%03d.jpeg // -r 每一秒几帧，-q:v 存储jpeg的图像质量，一般2是高质量
+ffmpeg -i input.mp4 -ss 00:00:20 -t 10 -r 1 -q:v 2 -f image2 pic-%03d.jpeg //抽取10帧图片
+随便挑一张，转为YUV:
+ffmpeg -i pic-001.jpeg -s 1440x1440 -pix_fmt yuv420p xxx3.yuv</code></pre><h2 id="图片序列与视频转换"><a href="#图片序列与视频转换" class="headerlink" title="图片序列与视频转换"></a>图片序列与视频转换</h2><pre><code>ffmpeg -i 001.mp3 -i example.%d.jpg -s 1024x768 -vcodec mpeg4 rebuild.mp4 // 把图片序列帧和音频文件利用mpeg4编码方式合成视频文件darkdoor.avi
+ffmpeg -i input.mp4 example.%d.jpg // 把视频文件导出成序列帧</code></pre><h2 id="ffmpeg-控制视频profile"><a href="#ffmpeg-控制视频profile" class="headerlink" title="ffmpeg 控制视频profile"></a>ffmpeg 控制视频profile</h2><pre><code>ffmpeg -i input.mp4 -profile:v baseline -level 3.0 output.mp4    
+ffmpeg -i input.mp4 -profile:v main -level 4.2 output.mp4    
+ffmpeg -i input.mp4 -profile:v high -level 5.1 output.mp4
+如果ffmpeg编译时加了external的libx264，可以这样写：
+ffmpeg -i input.mp4 -c:v libx264 -x264-params &quot;profile=high:level=3.0&quot; output.mp4
+
+从压缩比例来说，baseline&lt; main &lt; high，对于带宽比较局限的在线视频，可能会选择high，但有些时候，做个小视频，希望所有的设备基本都能解码（有些低端设备或早期的设备只能解码baseline），那就牺牲文件大小吧，用baseline。自己取舍吧！</code></pre><h2 id="解码H-264-H-265码流（解码）"><a href="#解码H-264-H-265码流（解码）" class="headerlink" title="解码H.264/H.265码流（解码）"></a>解码H.264/H.265码流（解码）</h2><pre><code>ffmpeg -i input_file.264 -vframes 100 output.yuv
+ffmpeg -i input_file.265 -vframes 100 output.yuv</code></pre><h2 id="转换成H264码流（编码）"><a href="#转换成H264码流（编码）" class="headerlink" title="转换成H264码流（编码）"></a>转换成H264码流（编码）</h2><pre><code>ffmpeg -i input_file.yuv -vcodec h264 output_file.264 
+
+其中 -i 表示输入文件， -vcodec h264 表示视频编解码方式为 H264。</code></pre><h2 id="编码质量"><a href="#编码质量" class="headerlink" title="编码质量"></a>编码质量</h2><pre><code>ffmpeg -i input -c:v libx264 -profile:v main -preset:v fast -level 3.1 -x264opts crf=18   
+
+ 编码效率和视频质量的取舍:强行配置biterate，或者强行配置profile/level，还有2个参数可以控制编码效率。
+一个是preset，一个是crf。preset也挺粗暴，基本原则就是，如果你觉得编码太快或太慢了，想改改，可以用profile。
+preset有如下参数可用：
+ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow and placebo.
+编码加快，意味着信息丢失越严重，输出图像质量越差。 
+CRF(Constant Rate Factor): 范围 0-51: 0是编码毫无丢失信息, 23 is 默认, 51 是最差的情况。相对合理的区间是18-28.
+值越大，压缩效率越高，但也意味着信息丢失越严重，输出图像质量越差</code></pre><h2 id="转换成H265码流（编码）"><a href="#转换成H265码流（编码）" class="headerlink" title="转换成H265码流（编码）"></a>转换成H265码流（编码）</h2><pre><code>ffmpeg -i input_file -vcode hevc output_file  
+
+其中 -i 表示输入文件， -vcodec hevc 表示视频编解码方式为 H265，注意ffmpeg 中名称为 hevc，不是H265！</code></pre><h2 id="设置输出视频的分辨率"><a href="#设置输出视频的分辨率" class="headerlink" title="设置输出视频的分辨率"></a>设置输出视频的分辨率</h2><pre><code>ffmpeg -i input_file -vcodec h264 -s 1280x720 output_file
+其中 -s 表示分辨率。</code></pre><h2 id="设置输出文件的音视频比特率"><a href="#设置输出文件的音视频比特率" class="headerlink" title="设置输出文件的音视频比特率"></a>设置输出文件的音视频比特率</h2><pre><code>ffmpeg -i input_file  -vcodec h264 -b:v 10M -b:a 128K output_file
+
+其中 -b:v 10M 表示视频码率为10Mbps， -b:a 128K 表示音频码率为 128Kbps，注意FFMPEG对于码率控制，有时候不太准确，跟输入源有一定关系。</code></pre><h2 id="剪切某段视频"><a href="#剪切某段视频" class="headerlink" title="剪切某段视频"></a>剪切某段视频</h2><pre><code>ffmpeg -ss 0:05:00 -t 0:1:30 -i input_file -vcodec copy -acodec copy output_file  
+ffmpeg -ss 300 -t 90  -i input_file -vcodec copy -acodec copy output_file
+
+上面的两种方式等价，时间格式支持 HH:MM:SS或者秒数。 -ss 开始时间， -t 持续时间， -vcodec copy 保持原视频编码方式， -acodec copy 保持原音频编码方式。
+
+注意：-vcodec copy与-c:v以及-codec:v 这三种写法的功能是一样的，具体可参考：[https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html](https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html &quot;https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html&quot;)</code></pre><h2 id="分离音视频流保存为不同文件"><a href="#分离音视频流保存为不同文件" class="headerlink" title="分离音视频流保存为不同文件"></a>分离音视频流保存为不同文件</h2><pre><code>ffmpeg -i input_file -vcodec copy -an output_file_video　　//提取视频流 
+ffmpeg -i input_file -acodec copy -vn output_file_audio　　//提取音频流
+其中 -an 表示不处理音频， -vn 表示不处理视频。</code></pre><h2 id="合并多个音视频文件为一个文件"><a href="#合并多个音视频文件为一个文件" class="headerlink" title="合并多个音视频文件为一个文件"></a>合并多个音视频文件为一个文件</h2><pre><code>ffmpeg –i video_file –i audio_file –vcodec copy –acodec copy output_file </code></pre><h2 id="提取视频图像保存为图片文件-将视频分解为单幅图片"><a href="#提取视频图像保存为图片文件-将视频分解为单幅图片" class="headerlink" title="提取视频图像保存为图片文件(将视频分解为单幅图片)"></a>提取视频图像保存为图片文件(将视频分解为单幅图片)</h2><pre><code>ffmpeg –i input_file –r 1 –f image2 image-%3d.jpeg        //提取图片
+
+其中 -r 表示提取图像的频率，-f 表示输出格式， %3d 表示文件命名方式（也即生成的图片名为 image-001.jpeg, image-002.jpeg, …, image-999.jpeg）。</code></pre><h2 id="转换成YUV原始文件"><a href="#转换成YUV原始文件" class="headerlink" title="转换成YUV原始文件"></a>转换成YUV原始文件</h2><pre><code>ffmpeg -i input_file -vcodec rawvideo -an output_file_yuv</code></pre><h2 id="YUV序列转出AVI文件"><a href="#YUV序列转出AVI文件" class="headerlink" title="YUV序列转出AVI文件"></a>YUV序列转出AVI文件</h2><pre><code>ffmpeg –s w*h –pix_fmt yuv420p –i input.yuv –vcodec mpeg4 output.avi </code></pre><h2 id="控制关键帧间隔和B帧"><a href="#控制关键帧间隔和B帧" class="headerlink" title="控制关键帧间隔和B帧"></a>控制关键帧间隔和B帧</h2><pre><code>ffmpeg –i input_file  –vcodec h264 –bf 0 –g 25 –s 854x480 –an –f m4v output_file
+
+其中-bf 控制B帧数目，-g 控制关键帧间隔， -f 控制文件格式（format，注意与codec的区别）。</code></pre><h2 id="多个视频文件拼接"><a href="#多个视频文件拼接" class="headerlink" title="多个视频文件拼接"></a>多个视频文件拼接</h2><pre><code>首先创建一个需要拼接的文件，例如 concat.txt，内容如下：
+
+file ‘orig_20160616113303_0.avi’
+file ‘orig_20160616113303_1.avi’
+
+然后执行如下命令
+
+ffmpeg  -f concat -i concat.txt  -c copy orig_20160616113303_merge.avi </code></pre><h2 id="YUV处理相关命令（持续更新ing）"><a href="#YUV处理相关命令（持续更新ing）" class="headerlink" title="YUV处理相关命令（持续更新ing）"></a>YUV处理相关命令（持续更新ing）</h2><pre><code>查看ffmpeg支持哪些yuv格式的转换
+ffmpeg -pix_fmts  </code></pre><h2 id="ffmpeg转换yuv格式命令"><a href="#ffmpeg转换yuv格式命令" class="headerlink" title="ffmpeg转换yuv格式命令"></a>ffmpeg转换yuv格式命令</h2><pre><code>ffmpeg -pix_fmt yuv420p -s 176x144 -i carphone_qcif.yuv -pix_fmt nv12 carphone_qcif_nv12.yuv  </code></pre><h2 id="ffmpeg命令行yuv缩放命令"><a href="#ffmpeg命令行yuv缩放命令" class="headerlink" title="ffmpeg命令行yuv缩放命令"></a>ffmpeg命令行yuv缩放命令</h2><pre><code>ffmpeg -s:v 1920x1080 -r 25 -i input.yuv -vf scale=960:540 -c:v rawvideo -pix_fmt yuv420p out.yuv  </code></pre><h2 id="ffmpeg解码码流命令"><a href="#ffmpeg解码码流命令" class="headerlink" title="ffmpeg解码码流命令"></a>ffmpeg解码码流命令</h2><pre><code>ffmpeg -i 720P.264 -s 1280x720 -pix_fmt yuv422p 720P-out.yuv  
+ffmpeg -i 720P.264 -vframes 300  720P-out.yuv    //指定解码的帧数
+简化版：ffmpeg -i 720P.264 720P-out.yuv
+
+注意不同选项的顺序，-s选项放在-i后面，指定不同分辨率时，在解码后进行了缩放。</code></pre><h2 id="ffmpeg-yuv转avi"><a href="#ffmpeg-yuv转avi" class="headerlink" title="ffmpeg yuv转avi"></a>ffmpeg yuv转avi</h2><pre><code>ffmpeg -s wxh -pix_fmt yuv420p -i input.yuv -vcodec mpeg4 output.avi  
+ffmpeg -s wxh -pix_fmt yuv420p -i input.yuv -vcodec h264 output.avi  </code></pre><h2 id="ffmpeg-裸码流转avi"><a href="#ffmpeg-裸码流转avi" class="headerlink" title="ffmpeg 裸码流转avi"></a>ffmpeg 裸码流转avi</h2><pre><code>ffmpeg -f h264 -i source.264 -c:v libx264 -an dest.avi
+Use -c:v copy instead to copy the source stream without re-encoding</code></pre><h2 id="ffmpeg-avi转裸码流"><a href="#ffmpeg-avi转裸码流" class="headerlink" title="ffmpeg avi转裸码流"></a>ffmpeg avi转裸码流</h2><pre><code>提取裸码流
+
+ffmpeg.exe -i BQSquare_416x240_37.avi -f rawvideo -vcodec copy xx.264
+
+提取若干帧数码流
+
+ffmpeg.exe -i BQSquare_416x240_37.avi -f rawvideo -vcodec copy -vframes 100 xx.264
+
+对于提取特定的帧，需要用特殊的方法：假设提取260帧，帧率是26， 则可用-ss 10.0 其中10.0=260/26</code></pre><h2 id="YUV裁剪功能"><a href="#YUV裁剪功能" class="headerlink" title="YUV裁剪功能"></a>YUV裁剪功能</h2><pre><code>Extract some YUV frames from large yuv File
+从第0帧开始截取30帧：
+ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v &quot;select=&#39;gt(n\, -1)&#39;&quot; -vframes 30 out30.yuv
+
+或者：
+
+ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v &quot;select=&#39;between(n\, 0\, 29)&#39;&quot; out30.yuv
+
+或者：
+
+ffmpeg -r 1 -ss 0 -i input.yuv -vcodec copy -vframes 30 output.yuv
+
+中间截取帧（截取从第30帧到第100帧）：
+
+ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v &quot;select=&#39;between(n\, 30\, 100)&#39;&quot; out.yuv
+
+根据时间截取帧（截取从第10秒到第20秒 ）：
+
+//Select only frames contained in the 10-20 time interval:
+//select=between(t\,10\,20)
+ffmpeg -s widthxheight -i input.yuv -c:v rawvideo -filter:v &quot;select=&#39;between(t\, 10\, 20)&#39;&quot; out.yuv
+
+参考自： [https://blog.csdn.net/listener51/article/details/82025541](https://blog.csdn.net/listener51/article/details/82025541 &quot;https://blog.csdn.net/listener51/article/details/82025541&quot;)</code></pre><h2 id="提取YUV数据"><a href="#提取YUV数据" class="headerlink" title="提取YUV数据"></a>提取YUV数据</h2><pre><code>ffmpeg.exe -ss 00:02:45 -t 00:00:18  -i 8k.mp4 -an -c:v rawvideo -pix_fmt yuv420p 8k.yuv
+
+ffmpeg -i killer.mp4 -an -c:v rawvideo -pix_fmt yuv420p ouy.yuv
+
+参数说明
+-c:v rawvideo 指定将视频转成原始数据
+-pixel_format yuv420p 指定转换格式为yuv420p</code></pre><img src="/2019/12/23/ffmpeg-chang-yong-ming-ling-hui-zong/1.jpeg" class="">
 
 <p>从日志中可以看出，像素格式:yuv420p,分辨率:608x368，使用ffplay播放一下。需要指定分辨率，这个时候不需要指定视频格式了，ffplay默认像素格式格式就是yuv420p。</p>
-<pre><code>ffplay -s 608x368 ouy.yuv</code></pre><ul>
-<li><p>提取PCM数据</p>
-<p>  ffmpeg -i killer.mp4 -vn -ar 44100 -ac 2 -f s16le out.pcm<br>  参数说明</p>
-<p>  -ar:指定音频采样率 44100 即44.1KHz<br>  -ac:指定音频声道channel 2 为双声道<br>  -f：数据存储格式 s：Signed 有符号的， 16： 每一个数值用16位表示， l： little， e： end</p>
-</li>
-</ul>
-<pre><code>使用ffplay播放
+<pre><code>ffplay -s 608x368 ouy.yuv</code></pre><h2 id="提取PCM数据"><a href="#提取PCM数据" class="headerlink" title="提取PCM数据"></a>提取PCM数据</h2><pre><code>ffmpeg -i killer.mp4 -vn -ar 44100 -ac 2 -f s16le out.pcm
+参数说明：
+-ar:指定音频采样率 44100 即44.1KHz
+-ac:指定音频声道channel 2 为双声道
+-f：数据存储格式 s：Signed 有符号的， 16： 每一个数值用16位表示， l： little， e： end
 
-ffplay -ar 44100 -ac 2 -f s16le out.pcm</code></pre><blockquote>
-<p>作者：欧阳慕远<br>链接：<a href="https://www.jianshu.com/p/210ab1749bc1" target="_blank" rel="noopener">https://www.jianshu.com/p/210ab1749bc1</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
-<h1 id="FFMPEG常用参数说明"><a href="#FFMPEG常用参数说明" class="headerlink" title="FFMPEG常用参数说明"></a>FFMPEG常用参数说明</h1><pre><code>主要参数：
+使用ffplay播放
+
+ffplay -ar 44100 -ac 2 -f s16le out.pcm</code></pre><h1 id="FFMPEG常用参数说明"><a href="#FFMPEG常用参数说明" class="headerlink" title="FFMPEG常用参数说明"></a>FFMPEG常用参数说明</h1><pre><code>主要参数：
 -i 设定输入流
 -f 设定输出格式
 -ss 开始时间
@@ -601,9 +619,115 @@ ffplay -ar 44100 -ac 2 -f s16le out.pcm</code></pre><blockquote>
 -ar 设定采样率
 -ac 设定声音的Channel数
 -acodec 设定声音编解码器，未设定时则使用与输入流相同的编解码器
--an 不处理音频</code></pre><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>  ffmpeg功能强大，参数配置众多，最好的方式查看它的命令行帮助文档，各个参数都有详细的说明，唯一的遗憾就是没有例子，对于初入媒体领域的人来说，门槛比较高。不明白的参数，可以多试试，再接合MediaInfo工具查看具体信息，通过VLC或者FFMPEG自带的 ffplay播放器播放，就容易理解了。</p>
-<h1 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h1><p>官网翻译文档：<a href="https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md" target="_blank" rel="noopener">https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md</a><br>官方ffmpeg命令行参考文档：<a href="http://ffmpeg.org/ffmpeg.html" target="_blank" rel="noopener">http://ffmpeg.org/ffmpeg.html</a></p>
-<p>更多ffmpeg命令使用可参考：<br><a href="http://processors.wiki.ti.com/index.php/Open_Source_Video_Processing_Tools_-_MPlayer,_FFMpeg,_AviSynth,_MKVToolnix,_MP4Box#Downloads" target="_blank" rel="noopener">http://processors.wiki.ti.com/index.php/Open_Source_Video_Processing_Tools_-_MPlayer,_FFMpeg,_AviSynth,_MKVToolnix,_MP4Box#Downloads</a><br><a href="http://ffmpeg.org/ffmpeg-filters.html#aselect_002c-select" target="_blank" rel="noopener">http://ffmpeg.org/ffmpeg-filters.html#aselect_002c-select</a><br><a href="https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html" target="_blank" rel="noopener">https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html</a><br><a href="https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md" target="_blank" rel="noopener">https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md</a><br><a href="https://blog.csdn.net/SoaringLee_fighting/article/details/56015567" target="_blank" rel="noopener">https://blog.csdn.net/SoaringLee_fighting/article/details/56015567</a><br><a href="https://www.suninf.net/2017/02/ffmpeg-command-usage.html" target="_blank" rel="noopener">https://www.suninf.net/2017/02/ffmpeg-command-usage.html</a><br>ffmpeg常用命令–调节视频颜色和添加背景音乐<br>————————————————<br>版权声明：本文为CSDN博主「鹏之爱情海」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/soaringlee_fighting/article/details/80571673" target="_blank" rel="noopener">https://blog.csdn.net/soaringlee_fighting/article/details/80571673</a></p>
+-an 不处理音频</code></pre><h1 id="ffmpeg-帮助"><a href="#ffmpeg-帮助" class="headerlink" title="ffmpeg 帮助"></a>ffmpeg 帮助</h1><pre><code>    Getting help: 帮助
+        -h      -- print basic options
+        -h long -- print more options
+        -h full -- print all options (including all format and codec specific options, very long)
+        -h type=name -- print all options for the named decoder/encoder/demuxer/muxer/filter/bsf
+        See man ffmpeg for detailed description of the options.
+
+    Print help / information / capabilities:
+    -L                  show license 
+    -h topic            show help
+    -? topic            show help
+    -help topic         show help
+    --help topic        show help
+    -version            show version
+    -buildconf          show build configuration
+    -formats            show available formats
+    -muxers             show available muxers
+    -demuxers           show available demuxers
+    -devices            show available devices
+    -codecs             show available codecs
+    -decoders           show available decoders
+    -encoders           show available encoders
+    -bsfs               show available bit stream filters
+    -protocols          show available protocols
+    -filters            show available filters
+    -pix_fmts           show available pixel formats
+    -layouts            show standard channel layouts
+    -sample_fmts        show available audio sample formats
+    -colors             show available color names
+    -sources device     list sources of the input device
+    -sinks device       list sinks of the output device
+    -hwaccels           show available HW acceleration methods
+
+    Global options (affect whole program instead of just one file:
+    -loglevel loglevel  set logging level
+    -v loglevel         set logging level
+    -report             generate a report
+    -max_alloc bytes    set maximum size of a single allocated block
+    -y                  overwrite output files
+    -n                  never overwrite output files
+    -ignore_unknown     Ignore unknown stream types
+    -filter_threads     number of non-complex filter threads
+    -filter_complex_threads  number of threads for -filter_complex
+    -stats              print progress report during encoding
+    -max_error_rate maximum error rate  ratio of errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success.
+    -bits_per_raw_sample number  set the number of bits per raw sample
+    -vol volume         change audio volume (256=normal)
+
+    Per-file main options:
+    -f fmt              force format
+    -c codec            codec name
+    -codec codec        codec name
+    -pre preset         preset name
+    -map_metadata outfile[,metadata]:infile[,metadata]  set metadata information of outfile from infile
+    -t duration         record or transcode &quot;duration&quot; seconds of audio/video
+    -to time_stop       record or transcode stop time
+    -fs limit_size      set the limit file size in bytes
+    -ss time_off        set the start time offset
+    -sseof time_off     set the start time offset relative to EOF
+    -seek_timestamp     enable/disable seeking by timestamp with -ss
+    -timestamp time     set the recording timestamp (&#39;now&#39; to set the current time)
+    -metadata string=string  add metadata
+    -program title=string:st=number...  add program with specified streams
+    -target type        specify target file type (&quot;vcd&quot;, &quot;svcd&quot;, &quot;dvd&quot;, &quot;dv&quot; or &quot;dv50&quot; with optional prefixes &quot;pal-&quot;, &quot;ntsc-&quot; or &quot;film-&quot;)
+    -apad               audio pad
+    -frames number      set the number of frames to output
+    -filter filter_graph  set stream filtergraph
+    -filter_script filename  read stream filtergraph description from a file
+    -reinit_filter      reinit filtergraph on input parameter changes
+    -discard            discard
+    -disposition        disposition
+
+    Video options:
+    -vframes number     set the number of video frames to output
+    -r rate             set frame rate (Hz value, fraction or abbreviation)
+    -s size             set frame size (WxH or abbreviation)
+    -aspect aspect      set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)
+    -bits_per_raw_sample number  set the number of bits per raw sample
+    -vn                 disable video
+    -vcodec codec       force video codec (&#39;copy&#39; to copy stream)
+    -timecode hh:mm:ss[:;.]ff  set initial TimeCode value.
+    -pass n             select the pass number (1 to 3)
+    -vf filter_graph    set video filters
+    -ab bitrate         audio bitrate (please use -b:a)
+    -b bitrate          video bitrate (please use -b:v)
+    -dn                 disable data
+
+    Audio options:
+    -aframes number     set the number of audio frames to output
+    -aq quality         set audio quality (codec-specific)
+    -ar rate            set audio sampling rate (in Hz)
+    -ac channels        set number of audio channels
+    -an                 disable audio
+    -acodec codec       force audio codec (&#39;copy&#39; to copy stream)
+    -vol volume         change audio volume (256=normal)
+    -af filter_graph    set audio filters
+
+    Subtitle options:
+    -s size             set frame size (WxH or abbreviation)
+    -sn                 disable subtitle
+    -scodec codec       force subtitle codec (&#39;copy&#39; to copy stream)
+    -stag fourcc/tag    force subtitle tag/fourcc
+    -fix_sub_duration   fix subtitles duration
+    -canvas_size size   set canvas size (WxH or abbreviation)
+    -spre preset        set the subtitle options to the indicated preset</code></pre><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>  ffmpeg功能强大，参数配置众多，最好的方式查看它的命令行帮助文档，各个参数都有详细的说明，唯一的遗憾就是没有例子，对于初入媒体领域的人来说，门槛比较高。不明白的参数，可以多试试，再接合MediaInfo工具查看具体信息，通过VLC或者FFMPEG自带的 ffplay播放器播放，就容易理解了。</p>
+<h1 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h1><p><a href="https://blog.csdn.net/tj297202234/article/details/90484154" target="_blank" rel="noopener">https://blog.csdn.net/tj297202234/article/details/90484154</a></p>
+<p>官网翻译文档：<a href="https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md" target="_blank" rel="noopener">https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md</a></p>
+<p>官方ffmpeg命令行参考文档：<a href="http://ffmpeg.org/ffmpeg.html" target="_blank" rel="noopener">http://ffmpeg.org/ffmpeg.html</a><br>参考网址：<a href="https://stackoverflow.com/questions/33108985/ffmpeg-264-to-avi" target="_blank" rel="noopener" title="https://stackoverflow.com/questions/33108985/ffmpeg-264-to-avi">https://stackoverflow.com/questions/33108985/ffmpeg-264-to-avi</a></p>
+<p>更多ffmpeg命令使用可参考：<br><a href="http://processors.wiki.ti.com/index.php/Open_Source_Video_Processing_Tools_-_MPlayer,_FFMpeg,_AviSynth,_MKVToolnix,_MP4Box#Downloads" target="_blank" rel="noopener">http://processors.wiki.ti.com/index.php/Open_Source_Video_Processing_Tools_-_MPlayer,_FFMpeg,_AviSynth,_MKVToolnix,_MP4Box#Downloads</a><br><a href="http://ffmpeg.org/ffmpeg-filters.html#aselect_002c-select" target="_blank" rel="noopener">http://ffmpeg.org/ffmpeg-filters.html#aselect_002c-select</a><br><a href="https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html" target="_blank" rel="noopener">https://lists.ffmpeg.org/pipermail/ffmpeg-user/2017-February/035335.html</a><br><a href="https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md" target="_blank" rel="noopener">https://www.bookstack.cn/read/other-doc-cn-ffmpeg/ffmpeg-doc-cn-40.md</a><br><a href="https://blog.csdn.net/SoaringLee_fighting/article/details/56015567" target="_blank" rel="noopener">https://blog.csdn.net/SoaringLee_fighting/article/details/56015567</a><br><a href="https://www.suninf.net/2017/02/ffmpeg-command-usage.html" target="_blank" rel="noopener">https://www.suninf.net/2017/02/ffmpeg-command-usage.html</a><br><a href="https://blog.csdn.net/soaringlee_fighting/article/details/80571673" target="_blank" rel="noopener">https://blog.csdn.net/soaringlee_fighting/article/details/80571673</a></p>
 
             </div>
             <hr/>
