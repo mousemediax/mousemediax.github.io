@@ -4,17 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Markdown语法详解, 视频技术,FFmpeg,音视频,影音视频,经典影视,视频处理,后期制作,音频技术, 视频格式, 颜色空间">
-    <meta name="description" content="常用快捷键
-加粗 Ctrl + B
-斜体 Ctrl + I
-引用 Ctrl + Q
-插入链接 Ctrl + L
-插入代码 Ctrl + K
-插入图片 Ctrl + G
-提升标题 Ctrl + H
-有序列表 Ctrl + O
-无序列表 Ctr">
+    <meta name="keywords" content="netlify 部署hexo博客绑定自定义域名方法记录, 视频技术,FFmpeg,音视频,影音视频,经典影视,视频处理,后期制作,音频技术, 视频格式, 颜色空间">
+    <meta name="description" content="背景github提供得gitpage可以基于本地hexo环境构建个人博客站点，而且速度很快。 但是有个致命问题，百度不收录gitpage 站点，原因据说是gitpage 屏蔽百度蜘蛛，由于个人站点大量被百度蜘蛛访问，导致github 负载增">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Markdown语法详解 | MouseMedia</title>
+    <title>netlify 部署hexo博客绑定自定义域名方法记录 | MouseMedia</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Markdown语法详解</h1>
+                    <h1 class="description center-align post-title">netlify 部署hexo博客绑定自定义域名方法记录</h1>
                 </div>
             </div>
         </div>
@@ -435,8 +426,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/netlify/">
+                                <span class="chip bg-color">netlify</span>
+                            </a>
+                        
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
                             </a>
                         
                     </div>
@@ -460,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-24
+                    2019-12-26
                 </div>
                 
 
@@ -477,85 +472,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h1><ul>
-<li>加粗 Ctrl + B</li>
-<li>斜体 Ctrl + I</li>
-<li>引用 Ctrl + Q</li>
-<li>插入链接 Ctrl + L</li>
-<li>插入代码 Ctrl + K</li>
-<li>插入图片 Ctrl + G</li>
-<li>提升标题 Ctrl + H</li>
-<li>有序列表 Ctrl + O</li>
-<li>无序列表 Ctrl + U</li>
-<li>横线 Ctrl + R</li>
-<li>撤销 Ctrl + Z</li>
-<li>重做 Ctrl + Y</li>
-</ul>
-<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>对字体设置斜体、粗体、删除线，语法如下：</p>
-<img src="/2019/12/24/markdown-yu-fa-xiang-jie/1.jpg" class="">
+                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>github提供得gitpage可以基于本地hexo环境构建个人博客站点，而且速度很快。 但是有个致命问题，百度不收录gitpage 站点，原因据说是gitpage 屏蔽百度蜘蛛，由于个人站点大量被百度蜘蛛访问，导致github 负载增加，github所以屏蔽了百度。</p>
+<p>导致结果： 网址不会被百度收录。</p>
+<h1 id="寻找解决方案"><a href="#寻找解决方案" class="headerlink" title="寻找解决方案"></a>寻找解决方案</h1><p>参考文章：<a href="https://blog.csdn.net/grackanil/article/details/81196931" target="_blank" rel="noopener">https://blog.csdn.net/grackanil/article/details/81196931</a></p>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>被设计为直接来源于GitHub仓库的个人、组织或项目主页。<br>提供静态网站托管服务<br>不支持服务端代码，比如 PHP、Ruby 或 Python<br>GitHub Pages 提供的域名可以支持 HTTPS 访问<br>可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。<br>响应速度还是有点慢<br>网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时</p>
+<h2 id="Netlify"><a href="#Netlify" class="headerlink" title="Netlify"></a>Netlify</h2><p>不支持后台逻辑运算能力的网页<br>如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署<br>具有全球CDN、持续部署、一键HTTPS等优势<br>能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。<br>可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题</p>
+<h2 id="Coding-Pages"><a href="#Coding-Pages" class="headerlink" title="Coding Pages"></a>Coding Pages</h2><p>由国内 Coding 提供<br>访问速度友好<br>可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度<br>可以免费绑定多个自定义域名<br>自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议<br>更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好<br>新增动态页面部署<br>有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。<br>GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。<br>可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等<br>可以配置自定义域名 HTTPS，需要的是上传证书</p>
+<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><p>不仅支持静态网站托管，也支持 JavaScript(Node.js) 或者 Docker 驱动的网站，<br>可以使用 CLI 或者链接 Git 仓库<br>支持自定义域名，开启 HTTPS<br>传输基于 HTTP/2<br>不需要安装 Git 等源代码控制工具，不需要设置 keys 或者 tokens<br>实时部署。<br>Firebase Hosting<br>只能 CLI<br>支持自定义域名并支持开启 HTTPS<br>支持重定向和重写。<br>Bitbucket Cloud<br>必须要通过 HTTPS 访问<br>不能自定义域名<br>所有项目的静态网站代码都只能放在专门的站点仓库里。<br>页面缓存 15 分钟，意味着改变不会立即可见。</p>
+<h2 id="aerobatic"><a href="#aerobatic" class="headerlink" title="aerobatic"></a>aerobatic</h2><p>可以支持 CLI 上传代码<br>自定义域名需要收费。</p>
+<h2 id="surge"><a href="#surge" class="headerlink" title="surge"></a>surge</h2><p>只支持 CLI<br>支持自定义域名，开启 SSL 是需要收费，同时需要自己上传证书</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>决定使用netlify 提供得部署，源代码依然在github上，netlify提供执行hexo相关命令环境，同时个人域名绑定都切换到netlify上, netlify 而且提供了免费https服务。</p>
+<p>netlify 基于github 更新，github 对应的项目更新，netlify自动编译部署。这样免去了本地hexo环境。</p>
+<p>个人测试速度还是有些差异：ping netlify 主机和gitpage 主机。</p>
+<pre><code>部署在gitpage的站点
 
-<h2 id="标题分级："><a href="#标题分级：" class="headerlink" title="标题分级："></a>标题分级：</h2><p><img src="2.jpeg" alt="标题分级"></p>
-<h2 id="网址链接："><a href="#网址链接：" class="headerlink" title="网址链接："></a>网址链接：</h2><p><img src="3.jpeg" alt="网址链接"></p>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以在一行中用三个以上的星号(*)、减号(-)、底线(_)来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
-<p><img src="4.jpeg" alt="分割线"></p>
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(tab), 另一种是利用英文“`”符号（一般在ESC键下方，和~同一个键）包裹代码。</p>
-<p>（1）代码块：缩进 4 个空格或是 1 个制表符。效果如下：</p>
-<p><img src="5.jpeg" alt="代码块"></p>
-<p>（2）行内式：如果在一个行内需要引用代码，只要用反引号`引起来就好(Esc健）</p>
-<p><img src="6.jpeg" alt="行内式"></p>
-<p>（3）多行代码块与语法高亮：在需要高亮的代码块的前一行及后一行使用三个单反引号“`”包裹，就可以了。</p>
-<p>示例如下：<br><img src="7.jpeg" alt="多行代码"></p>
-<p>（4）代码块里面包含html代码</p>
-<p>在代码区块里面， &amp; 、 &lt; 和 &gt; 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，剩下的 Markdown 都会帮你处理。</p>
-<p><img src="8.jpeg" alt="html语法表格"></p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在被引用的文本前加上&gt;符号，以及一个空格就可以了，如果只输入了一个&gt;符号会产生一个空白的引用。</p>
-<p>（1）基本使用</p>
-<p><img src="9.jpeg" alt="引用"></p>
-<p>（2）引用的嵌套使用</p>
-<p><img src="10.jpeg" alt="引用"></p>
-<p>（3）引用其它要素</p>
-<p><img src="11.jpeg" alt="引用"></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>（1）无序列表</p>
-<p>使用 *，+，- 表示无序列表。 注意：符号后面一定要有一个空格，起到缩进的作用。</p>
-<p><img src="12.jpeg" alt="无序列表"></p>
-<p>（2）有序列表</p>
-<p>使用数字和一个英文句点表示有序列表。<br>注意：英文句点后面一定要有一个空格，起到缩进的作用。<br><img src="13.jpeg" alt="有序列表"></p>
-<p>（3）无序列表和有序列表同时使用<br><img src="14.jpeg" alt=""></p>
-<p>（4）列表和其它要素混合使用</p>
-<p>列表不光可以单独使用，也可以使用其他的 Markdown 语法，包括标题、引用、代码区块等。</p>
-<p><img src="15.jpeg" alt=""></p>
-<blockquote>
-<p>注意事项：<br>    - 加粗效果不能直接用于列表标题里面，但是可以嵌套在列表里面混合使用。<br>    - 列表中包含代码块（前面加2个tab或者8个空格，并且需要空一行，否则不显示）。</p>
-</blockquote>
-<p><img src="16.jpeg" alt=""></p>
-<blockquote>
-<p>注意事项：<br>在使用列表时，只要是数字后面加上英文的点，就会无意间产生列表，比如2017.12.30 这时候想表达的是日期，有些软件把它被误认为是列表。解决方式：在每个点前面加上\就可以了。如下图所示：</p>
-</blockquote>
-<p><img src="17.jpeg" alt=""></p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格的基本写法很简单，就跟表格的形状很相似：</p>
-<p><img src="18.jpeg" alt=""></p>
-<p>表格对齐方式：我们可以指定表格单元格的对齐方式，冒号在左边表示左对齐，右边表示有对齐，两边都有表示居中。<br><img src="19.jpeg" alt="表格对齐方式"></p>
-<h1 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h1><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>方法1: 连续两个以上空格+回车<br>方法2：使用html语言换行标签：&lt;br&gt;</p>
-<h2 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h2><p>不断行的空白格 &amp;\nbsp; 或 &amp;#160;半角的空格 &amp;ensp; 或 &amp;#8194;全角的空格 &amp;emsp; 或 &amp;#8195;<br><img src="20.jpeg" alt="markdown缩进"></p>
-<h2 id="如何显示特殊符号"><a href="#如何显示特殊符号" class="headerlink" title="如何显示特殊符号"></a>如何显示特殊符号</h2><p>对于 Markdown 中的语法符号，前面加反斜线\即可显示符号本身。<br><img src="21.jpeg" alt="markdown特殊符号"></p>
-<p>其他特殊字符：<br><img src="22.jpeg" alt="markdown特殊符号"></p>
-<h2 id="字体、字号与颜色"><a href="#字体、字号与颜色" class="headerlink" title="字体、字号与颜色"></a>字体、字号与颜色</h2><p><img src="23.jpeg" alt="markdown字体字号颜色"><br>具体颜色分类及标记请看下表：<br><img src="24.jpeg" alt="markdown字体字号颜色"></p>
-<h2 id="图片位置"><a href="#图片位置" class="headerlink" title="图片位置"></a>图片位置</h2><p><code>&lt;div align=right&gt;![这里写图片描述](http:...)</code><br><code>&lt;div align=center&gt;![这里写图片描述](http:...)</code></p>
-<h1 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h1><h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><p>锚点其实就是页内超链接。比如我这里写下一个锚点，点击回到目录，就能跳转到目录。 在目录中点击这一节，就能跳过来。</p>
-<p><img src="25.jpeg" alt="锚点"></p>
-<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><p>语法说明：<br>在需要添加注脚的文字后加上脚注名字[^注脚名字],称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。<br><img src="26.jpeg" alt="注脚"></p>
-<blockquote>
-<p>注：<br>（1）脚注自动被搬运到最后面，请到文章末尾查看，并且脚注后方的链接可以直接跳转回到加注的地方。<br>（2）由于简书不支持锚点，所以可以用注脚实现页面内部的跳转。</p>
-</blockquote>
-<h2 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h2><p>Markdown本身不支持背景色设置，需要采用内置html的方式实现：借助 table, tr, td 等表格标签的 bgcolor 属性来实现背景色的功能。举例如下：<br><img src="27.png" alt="背景色"></p>
-<h2 id="emoji表情符号"><a href="#emoji表情符号" class="headerlink" title="emoji表情符号"></a>emoji表情符号</h2><p>emoji表情使用:EMOJICODE:的格式，详细列表可见:<br><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">https://www.webfx.com/tools/emoji-cheat-sheet/</a><br>很多markdown工具或者网站都不支持.<br><img src="27.jpeg" alt="emoji表情符号"></p>
-<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p><img src="28.png" alt="公式"></p>
-<h2 id="LaTex是什么？"><a href="#LaTex是什么？" class="headerlink" title="LaTex是什么？"></a>LaTex是什么？</h2><p>LaTeX（LATEX，音译“拉泰赫”）是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TeX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。</p>
-<h2 id="简单的规则"><a href="#简单的规则" class="headerlink" title="简单的规则"></a>简单的规则</h2><p><img src="29.png" alt="公式"></p>
-<h2 id="常用数学符号的-LaTeX-表示方法"><a href="#常用数学符号的-LaTeX-表示方法" class="headerlink" title="常用数学符号的 LaTeX 表示方法"></a>常用数学符号的 LaTeX 表示方法</h2><p><img src="30.png" alt="公式"><br><img src="31.png" alt="公式"><br><img src="32.png" alt="公式"></p>
-<hr>
-<h1 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h1><p><img src="28.jpeg" alt="流程图"><br>制作一份待办事宜—-Todo 列表<br><img src="29.jpeg" alt="流程图"><br>序列图：<br><img src="30.jpeg" alt="序列图"><br>甘特图：<br><img src="31.jpeg" alt="甘特图"></p>
-<p>本文参考文章：<br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&amp;mid=2247489234&amp;idx=1&amp;sn=c6de4582a1400af22e0908f05a8870bc" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzIwMzYwMTk1NA==&amp;mid=2247489234&amp;idx=1&amp;sn=c6de4582a1400af22e0908f05a8870bc</a></p>
+$ ping mousemedia.cc
+
+Pinging mousemedia.cc [185.199.109.153] with 32 bytes of data:
+Reply from 185.199.109.153: bytes=32 time=56ms TTL=52
+Reply from 185.199.109.153: bytes=32 time=57ms TTL=52
+Reply from 185.199.109.153: bytes=32 time=56ms TTL=52
+Reply from 185.199.109.153: bytes=32 time=57ms TTL=52
+
+Ping statistics for 185.199.109.153:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 56ms, Maximum = 57ms, Average = 56ms
+
+部署在netlify的站点
+
+$ ping mousemedia.cn
+
+Pinging mousemedia.cn [178.128.17.49] with 32 bytes of data:
+Reply from 178.128.17.49: bytes=32 time=103ms TTL=53
+Reply from 178.128.17.49: bytes=32 time=103ms TTL=53
+Reply from 178.128.17.49: bytes=32 time=103ms TTL=53
+Reply from 178.128.17.49: bytes=32 time=103ms TTL=53
+
+Ping statistics for 178.128.17.49:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 103ms, Maximum = 103ms, Average = 103ms
+</code></pre><h1 id="具体部署过程"><a href="#具体部署过程" class="headerlink" title="具体部署过程"></a>具体部署过程</h1><p>之前github上已经备份了hexo 以及网址原文件：</p>
+<img src="/2019/12/26/netlify-bu-shu-hexo-bo-ke-fang-fa-ji-lu/1.png" class="">
+
+<p>netlify 新建项目，并授权访问github hexo 项目（生产hexo静态页面的hexo源文件）<br>同时提供hexo 命令</p>
+
+
+<p>设置好后，添加自己的域名。</p>
+<p>同时修改域名服务器dns到netlify 提供的dns</p>
+<img src="/2019/12/26/netlify-bu-shu-hexo-bo-ke-fang-fa-ji-lu/2.png" class="">
+
+
+<p>相关参考：</p>
+<p><a href="Netlify搭建个人博客设置域名" title="https://blog.csdn.net/mqdxiaoxiao/article/details/96365253">Netlify搭建个人博客设置域名</a></p>
+<h1 id="google-提交网址验证"><a href="#google-提交网址验证" class="headerlink" title="google 提交网址验证"></a>google 提交网址验证</h1><p>具体参考：<a href="https://www.woguide.com/archives/4933.html" target="_blank" rel="noopener">https://www.woguide.com/archives/4933.html</a></p>
 
             </div>
             <hr/>
@@ -581,7 +552,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.mousemedia.cc/2019/12/24/markdown-yu-fa-xiang-jie/">https://www.mousemedia.cc/2019/12/24/markdown-yu-fa-xiang-jie/</a>
+                    <a href="https://www.mousemedia.cc/2019/12/26/netlify-bu-shu-hexo-bo-ke-fang-fa-ji-lu/">https://www.mousemedia.cc/2019/12/26/netlify-bu-shu-hexo-bo-ke-fang-fa-ji-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -619,8 +590,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/netlify/">
+                                    <span class="chip bg-color">netlify</span>
+                                </a>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
                                 </a>
                             
                         </div>
@@ -786,9 +761,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/12/26/netlify-bu-shu-hexo-bo-ke-fang-fa-ji-lu/">
                     <div class="card-image">
@@ -806,9 +782,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -821,6 +797,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -843,24 +820,28 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/24/hexo-gitpage-bo-ke-ben-di-wen-jian-bei-fen-hui-fu/">
+                <a href="/2019/12/24/markdown-yu-fa-xiang-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="hexo gitpage 博客本地文件备份恢复">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Markdown语法详解">
                         
-                        <span class="card-title">hexo gitpage 博客本地文件备份恢复</span>
+                        <span class="card-title">Markdown语法详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Hexo 源文件备份说明
-_config.yml站点的配置文件，需要拷贝
-themes/主题文件夹，需要拷贝；
-source博客文章的.md文件，需要拷贝；
-scaffolds/文章的模板，需要拷贝；
-package.json安装包的名称，
+                            常用快捷键
+加粗 Ctrl + B
+斜体 Ctrl + I
+引用 Ctrl + Q
+插入链接 Ctrl + L
+插入代码 Ctrl + K
+插入图片 Ctrl + G
+提升标题 Ctrl + H
+有序列表 Ctrl + O
+无序列表 Ctr
                         
                     </div>
                     <div class="publish-info">
